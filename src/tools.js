@@ -1,5 +1,4 @@
 /* eslint-disable max-depth */
-
 export const generateRandomCuadricule = (arrayLength) => {
   const emptyArray = Array.from({ length: arrayLength });
   const emptyCuadricule = [];
