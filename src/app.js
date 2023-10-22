@@ -1,4 +1,4 @@
 import { randomCuadricule } from './tools.js';
 import { initializeGame } from './tools.js';
 
-initializeGame(randomCuadricule, 7);
+initializeGame(randomCuadricule, 10);

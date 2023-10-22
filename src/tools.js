@@ -1,6 +1,6 @@
 /* eslint-disable max-depth */
 
-const generateRandomCuadricule = (arrayLength) => {
+export const generateRandomCuadricule = (arrayLength) => {
   const emptyArray = Array.from({ length: arrayLength });
   const emptyCuadricule = [];
 
@@ -16,7 +16,7 @@ const generateRandomCuadricule = (arrayLength) => {
 
 export const randomCuadricule = generateRandomCuadricule(6);
 
-const countAliveNeighbors = (arrayToModify, x, y) => {
+export const countAliveNeighbors = (arrayToModify, x, y) => {
   let accAlive = 0;
   for (let i = x - 1; i <= x + 1; i++) {
     for (let j = y - 1; j <= y + 1; j++) {
@@ -38,7 +38,7 @@ const countAliveNeighbors = (arrayToModify, x, y) => {
   return accAlive;
 };
 
-const modifyCells = (array) => {
+export const modifyCells = (array) => {
   const newTable = structuredClone(array);
 
   for (let i = 0; i < newTable.length; i++) {
@@ -60,13 +60,13 @@ const modifyCells = (array) => {
 };
 
 export const initializeGame = (array, playTimes) => {
-  // Console.clear();
+  console.clear();
   const modifiedCuadricule = modifyCells(array);
   console.table(array);
 
   if (playTimes > 0) {
     setTimeout(() => {
       initializeGame(modifiedCuadricule, playTimes - 1);
-    }, 900);
+    }, 2000);
   }
 };
