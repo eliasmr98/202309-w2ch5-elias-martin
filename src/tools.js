@@ -1,12 +1,38 @@
-const cuadriculeArray = [
-  [0, 0, 0, 1, 1, 0],
-  [1, 1, 1, 0, 1, 0],
-  [0, 0, 0, 1, 1, 0],
-  [1, 0, 0, 1, 1, 0],
-  [0, 1, 0, 1, 1, 0],
-  [1, 0, 1, 1, 1, 0],
-];
-console.table(cuadriculeArray);
+// Const cuadriculeArray = [
+//   [0, 0, 0, 1, 1, 0],
+//   [1, 1, 1, 0, 1, 0],
+//   [0, 0, 0, 1, 1, 0],
+//   [1, 0, 0, 1, 1, 0],
+//   [0, 1, 0, 1, 1, 0],
+//   [1, 0, 1, 1, 1, 0],
+// ];
+// Console.table(cuadriculeArray);
+
+const generateRandomCuadricule = (arrayLength) => {
+  const emptyArray = Array.from({ length: arrayLength });
+  const emptyCuadricule = [];
+
+  for (let i = 0; i < emptyArray.length; i++) {
+    const random0And1Array = emptyArray.map(() =>
+      Math.trunc(Math.random() * 2)
+    );
+    emptyCuadricule[i] = random0And1Array;
+  }
+
+  return emptyCuadricule;
+};
+
+console.table(generateRandomCuadricule(6));
+
+// Const generateRandomCuadricule = (arrayLength) => {
+//   const emptyCuadricule = Array.from({ length: arrayLength });
+//   const randomCuadricule = emptyCuadricule.map(
+//     generateRandom0and1Array(arrayLength)
+//   );
+//   return randomCuadricule;
+// };
+
+// console.log(generateRandomCuadricule(6));
 
 const countAliveNeighbors = (array, x, y) => {
   let accAlive = 0;
@@ -34,7 +60,7 @@ const modifyCells = (array) => {
   const newTable = structuredClone(array);
 
   for (let i = 0; i < newTable.length; i++) {
-    for (let j = 0; j < newTable.length; j++) {
+    for (let j = 0; j < newTable[i].length; j++) {
       const aliveNeighbors = countAliveNeighbors(array, i, j);
 
       if (array[i][j] === 0 && aliveNeighbors === 3) {
@@ -51,4 +77,4 @@ const modifyCells = (array) => {
   return newTable;
 };
 
-console.table(modifyCells(cuadriculeArray));
+// Console.table(modifyCells(cuadriculeArray));
